@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background: #1e293b;
+    color: white;
+    position: fixed;
+    padding: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.main {
+    margin-left: 220px;
+    padding: 20px;
+} .badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Status colors */
+.assigned {
+  background-color: gray;
+}
+
+.in-progress {
+  background-color: blue;
+}
+
+.submitted {
+  background-color: orange;
+}
+
+.under-review {
+  background-color: purple;
+}
+
+.remediation {
+  background-color: red;
+}
+
+.approved {
+  background-color: green;
+}
+
+.rejected {
+  background-color: black;
+}
