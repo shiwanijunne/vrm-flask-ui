@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Renewals</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f8; padding: 20px; }
+        table { width: 100%; background: white; border-collapse: collapse; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background: #2c3e50; color: white; }
+
+        .status { font-weight: bold; padding: 4px 8px; border-radius: 4px; }
+        .upcoming { color: green; }
+        .due { color: orange; }
+        .overdue { color: red; }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: white;
+            font-size: 12px;
+        }
+        .b-upcoming { background: green; }
+        .b-due { background: orange; }
+        .b-overdue { background: red; }
+    </style>
+</head>
+<body>
+
+<h1>Renewal Tracker</h1>
+<p>Upcoming, due, and overdue renewals</p>
+
+<table>
+    <tr>
+        <th>Vendor</th>
+        <th>Item</th>
+        <th>Renewal Date</th>
+        <th>Status</th>
+    </tr>
+
+    {% for r in renewals %}
+    <tr>
+        <td>{{ r.vendor }}</td>
+        <td>{{ r.item }}</td>
+        <td>{{ r.date }}</td>
+        <td>
+            <span class="badge {{ r.badge_class }}">{{ r.status }}</span>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+</html>

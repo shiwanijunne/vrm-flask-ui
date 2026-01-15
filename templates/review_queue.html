@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Review Queue</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f8; padding: 20px; }
+        table { width: 100%; background: white; border-collapse: collapse; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background: #8e44ad; color: white; }
+        .btn { padding: 6px 10px; background: #2980b9; color: white; text-decoration: none; border-radius: 4px; }
+        .status { font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<h1>Review Queue</h1>
+<p>Submitted assessments awaiting review</p>
+
+<table>
+    <tr>
+        <th>Vendor</th>
+        <th>Assessment</th>
+        <th>Submitted On</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for r in reviews %}
+    <tr>
+        <td>{{ r.vendor }}</td>
+        <td>{{ r.type }}</td>
+        <td>{{ r.date }}</td>
+        <td>
+         <span class="badge {{ r.status|lower|replace(' ', '-') }}">
+         {{ r.status }}
+       </span>
+    </td>
+        <td>
+            <a class="btn" href="/review/{{ r.id }}">Review</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+</html>

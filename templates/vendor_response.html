@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vendor Response</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f8; padding: 20px; }
+        .card { background: white; padding: 20px; margin-bottom: 20px; }
+        .status { font-weight: bold; color: orange; }
+    </style>
+</head>
+<body>
+
+<h1>Vendor Remediation Response</h1>
+
+<div class="card">
+    <p><b>Vendor:</b> {{ response.vendor }}</p>
+    <p><b>Finding:</b> {{ response.finding }}</p>
+    <p><b>Status:</b> <span class="status">{{ response.status }}</span></p>
+</div>
+
+<div class="card">
+    <h3>Vendor Response</h3>
+    <p>{{ response.comment }}</p>
+
+    <h4>Evidence</h4>
+    <p>📎 Uploaded security_policy.pdf (placeholder)</p>
+</div>
+
+<br>
+<a href="/remediation/{{ response.id }}">⬅ Back to Remediation</a>
+
+</body>
+</html>

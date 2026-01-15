@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}VRM Dashboard{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: #2c3e50;
+            position: fixed;
+            left: 0;
+            top: 0;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background: #34495e;
+        }
+
+        /* Topbar */
+        .topbar {
+            height: 60px;
+            background: white;
+            margin-left: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Content */
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            margin-top: 60px;
+        }
+       /*badge style */
+
+       .badge {
+        padding: 4px 8px;
+        border-radius: 4px;
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .badge-assigned { background: #3498db; }       /* Blue */
+    .badge-inprogress { background: #e67e22; }    /* Orange */
+    .badge-submitted { background: #9b59b6; }     /* Purple */
+    .badge-underreview { background: #f1c40f; }   /* Yellow */
+    .badge-remediation { background: #e74c3c; }   /* Red */
+    .badge-approved { background: #27ae60; }      /* Green */
+    .badge-rejected { background: #7f8c8d; }      /* Gray */
+    </style>
+        .user {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>VRM</h2>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/vendors">Vendors</a>
+    <a href="/assessments">Assessments</a>
+    <a href="/reviews">Review Queue</a>
+    <a href="/remediations">Remediation</a>
+    <a href="/renewals">Renewals</a>
+    <a href="/reports">Reports</a>
+</div>
+
+<!-- Topbar -->
+<div class="topbar">
+    <div style="float:left; font-weight:bold;">Admin Panel</div>
+    <div style="float:right;">
+        <form method="GET" action="/search" style="margin:0;">
+            <input type="text" name="q" placeholder="Search..." style="padding:5px;">
+            <button type="submit" style="padding:5px;">Search</button>
+        </form>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+<!-- Page Content -->
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

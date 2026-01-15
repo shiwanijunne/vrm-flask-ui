@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remediation Detail</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f8; padding: 20px; }
+        .card { background: white; padding: 20px; margin-bottom: 20px; }
+        .severity { font-weight: bold; color: red; }
+        .btn { padding: 8px 12px; background: #2980b9; color: white; text-decoration: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<h1>Remediation Detail</h1>
+
+<div class="card">
+    <p><b>Vendor:</b> {{ remediation.vendor }}</p>
+    <p><b>Finding:</b> {{ remediation.finding }}</p>
+    <p><b>Severity:</b> <span class="severity">{{ remediation.severity }}</span></p>
+    <p><b>Required Action:</b> {{ remediation.action }}</p>
+    <p><b>Due Date:</b> {{ remediation.due }}</p>
+    <p><b>Status:</b> {{ remediation.status }}</p>
+</div>
+
+<a class="btn" href="/remediation/{{ remediation.id }}/response">
+    View Vendor Response
+</a>
+
+<br><br>
+<a href="/remediations">⬅ Back to Remediation List</a>
+
+</body>
+</html>

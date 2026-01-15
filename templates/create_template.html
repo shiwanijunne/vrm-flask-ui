@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Template</title>
+</head>
+<body>
+
+<h1>Create Assessment Template</h1>
+
+<form method="post">
+
+    <label>Template Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Category:</label><br>
+    <select name="category">
+        <option>Security</option>
+        <option>Compliance</option>
+        <option>Financial</option>
+    </select><br><br>
+
+    <label>Questions (one per line):</label><br>
+    <textarea name="questions" rows="8" cols="60"
+        placeholder="Do you have ISO 27001 certification?
+Do you perform regular backups?
+Is data encrypted at rest?"></textarea>
+    <br><br>
+
+    <button type="submit">Save Template</button>
+</form>
+
+<br>
+<a href="/templates">⬅ Back</a>
+
+</body>
+</html>

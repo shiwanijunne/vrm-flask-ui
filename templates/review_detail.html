@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Review Assessment</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f8; padding: 20px; }
+        .card { background: white; padding: 20px; margin-bottom: 20px; }
+        .score { font-size: 20px; color: green; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; border-bottom: 1px solid #ddd; }
+        th { background: #ecf0f1; }
+        .btn { padding: 8px 14px; margin-right: 10px; }
+        .approve { background: green; color: white; }
+        .reject { background: red; color: white; }
+    </style>
+</head>
+<body>
+
+<h1>Assessment Review</h1>
+
+<div class="card">
+    <p><b>Vendor:</b> {{ review.vendor }}</p>
+    <p><b>Assessment:</b> {{ review.type }}</p>
+    <p><b>Status:</b> {{ review.status }}</p>
+</div>
+
+<div class="card">
+    <h3>Responses</h3>
+    <table>
+        <tr>
+            <th>Question</th>
+            <th>Response</th>
+            <th>Score</th>
+        </tr>
+        {% for q in questions %}
+        <tr>
+            <td>{{ q.question }}</td>
+            <td>{{ q.answer }}</td>
+            <td>{{ q.score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="card">
+    <h3>Scoring Summary</h3>
+    <p class="score">Overall Score: 72%</p>
+    <p>Risk Level: Medium</p>
+</div>
+
+<div class="card">
+    <button class="btn approve">Approve</button>
+    <button class="btn reject">Reject</button>
+</div>
+
+<br>
+<a href="/reviews">⬅ Back to Review Queue</a>
+
+</body>
+</html>

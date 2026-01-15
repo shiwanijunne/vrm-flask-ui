@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vendors</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #34495e;
+            color: white;
+        }
+        select {
+            padding: 6px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Vendor List</h1>
+
+<!-- FILTER -->
+<form method="get">
+    <label>Risk Level:</label>
+    <select name="risk" onchange="this.form.submit()">
+        <option value="">All</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+    </select>
+</form>
+
+<!-- TABLE -->
+<table>
+    <tr>
+        <th>Vendor Name</th>
+        <th>Category</th>
+        <th>Risk Level</th>
+        <th>Status</th>
+    </tr>
+
+    {% for vendor in vendors %}
+    <tr>
+        <td>{{ vendor.name }}</td>
+        <td>{{ vendor.category }}</td>
+        <td>{{ vendor.risk }}</td>
+        <td>{{ vendor.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assessments</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f8; padding: 20px; }
+        table { width: 100%; background: white; border-collapse: collapse; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background: #2c3e50; color: white; }
+        a { text-decoration: none; color: blue; }
+        .btn { padding: 8px 12px; background: green; color: white; border-radius: 4px; }
+    </style>
+</head>
+
+<body>
+
+<h1>Assessments</h1>
+
+<a class="btn" href="/assessments/assign">+ Assign Assessment</a>
+
+<br><br>
+
+<table>
+    <tr>
+        <th>Vendor</th>
+        <th>Assessment Type</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for a in assessments %}
+    <tr>
+        <td>{{ a.vendor }}</td>
+        <td>{{ a.type }}</td>
+        <td>{{ a.status }}</td>
+        <td>
+            <a href="/assessments/{{ a.id }}">View</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+</html>

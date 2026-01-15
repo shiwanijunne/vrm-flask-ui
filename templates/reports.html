@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f8; padding: 20px; }
+        table { width: 100%; background: white; border-collapse: collapse; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background: #1f618d; color: white; }
+
+        .btn {
+            padding: 8px 14px;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        .csv { background: green; }
+        .pdf { background: red; }
+    </style>
+</head>
+<body>
+
+<h1>Reports</h1>
+<p>Assessment summary reports</p>
+
+<a class="btn csv" href="#">Export CSV</a>
+<a class="btn pdf" href="#">Export PDF</a>
+
+<br><br>
+
+<table>
+    <tr>
+        <th>Vendor</th>
+        <th>Assessment</th>
+        <th>Score</th>
+        <th>Status</th>
+        <th>Reviewed On</th>
+    </tr>
+
+    {% for r in reports %}
+    <tr>
+        <td>{{ r.vendor }}</td>
+        <td>{{ r.assessment }}</td>
+        <td>{{ r.score }}</td>
+        <td>{{ r.status }}</td>
+        <td>{{ r.date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+</html>

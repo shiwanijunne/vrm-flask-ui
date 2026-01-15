@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remediation Tracker</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f8; padding: 20px; }
+        table { width: 100%; background: white; border-collapse: collapse; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background: #c0392b; color: white; }
+        .status { font-weight: bold; }
+        .open { color: red; }
+        .progress { color: orange; }
+        .closed { color: green; }
+        .btn { background: #2980b9; color: white; padding: 6px 10px; text-decoration: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<h1>Remediation Tracker</h1>
+<p>Findings requiring vendor action</p>
+
+<table>
+    <tr>
+        <th>Vendor</th>
+        <th>Finding</th>
+        <th>Severity</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for r in remediations %}
+    <tr>
+        <td>{{ r.vendor }}</td>
+        <td>{{ r.finding }}</td>
+        <td>{{ r.severity }}</td>
+        <td>{{ r.due }}</td>
+        <td class="status {{ r.status_class }}">{{ r.status }}</td>
+        <td>
+            <a class="btn" href="/remediation/{{ r.id }}">View</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+</html>
